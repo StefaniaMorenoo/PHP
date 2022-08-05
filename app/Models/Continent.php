@@ -10,8 +10,13 @@ class Continent extends Model
     //la tabla con la cual el modelo se relaciona
     protected $table = "continents";
     //la calve primaria de la tabla
-    protected $primaryKey="contienent_id";
+    protected $primaryKey="continent_id";
     //anular campos de auditoria
     public $timestamps = false;
     use HasFactory;
+
+    //Relacion entre contienente y region
+    public function regiones(){
+        return $this->hasMany(Region::class, 'continent_id');
+    }
 }
